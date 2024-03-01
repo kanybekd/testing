@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import ResponsiveDialog from './Dialog'
+import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
 
 function Counter() {
     const [show, setShow] = useState(false)
@@ -10,13 +13,34 @@ function Counter() {
     const handleChange = (e) => setValue(e.target.value)
 
     return (
-        <div style={{ width: '20%', border: "1px solid black", display: "flex", margin: 'auto' }}>
-            <div>
+        <div style={{ width: '20%', border: "1px solid black", display: "flex", margin: 'auto', flexDirection: "column" }}>
+            <div style={{ textAlign: "center", margin: "15px", padding: "10px" }}>
                 <h1 data-testid="counter">{counter}</h1>
                 <input data-testid='input' type="text" value={value} onChange={handleChange} /><br />
-                <button data-testid='increment' onClick={handleIncr}>increment</button>
-                <button data-testid='decrement' onClick={handleDecr}>decrement</button>
+                <Divider />
+                <br />
+                <Button data-testid='increment' onClick={handleIncr} variant="contained" color="success">
+                    increment
+                </Button>
+                <Button data-testid='decrement' onClick={handleDecr} variant="contained" color="success">
+                    decrement
+                </Button>
             </div>
+            <Divider />
+            <>
+                <ResponsiveDialog />
+            </>
+            <ul data-testid='countries'>
+                <li>
+                    USA
+                </li>
+                <li>
+                    Germany
+                </li>
+                <li>
+                    Malta
+                </li>
+            </ul>
         </div>
     )
 }
