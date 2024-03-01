@@ -4,7 +4,6 @@ function Counter() {
     const [show, setShow] = useState(false)
     const [counter, setCount] = useState(0)
     const [value, setValue] = useState('')
-    const handleShow = () => setShow(true)
 
     const handleIncr = () => setCount(counter => counter + 1)
     const handleDecr = () => setCount(counter => counter - 1)
